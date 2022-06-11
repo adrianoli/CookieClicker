@@ -1,0 +1,15 @@
+.container {
+  width: 70vw;
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 30px;
+}
+
+.item {
+  width: 150px;
+  height: 150px;
+  background: white;
+  border-radius: inherit;
+}
