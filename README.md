@@ -1,0 +1,2 @@
+# CookieClicker
+Created with CodeSandbox
