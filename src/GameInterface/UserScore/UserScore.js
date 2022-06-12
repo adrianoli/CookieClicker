@@ -1,9 +1,9 @@
 import React from "react";
 import { observer } from "mobx-react-lite";
-import { useGameScoreStore } from "../../hooks/useGameScoreStore";
+import { useRootStore } from "../../hooks/useRootStore";
 
 const UserScore = observer(() => {
-  const gameScoreStore = useGameScoreStore();
+  const gameScoreStore = useRootStore().gameScoreStore;
 
   return <p>{gameScoreStore.gameScore.points}</p>;
 });

@@ -1,16 +1,15 @@
 import React from "react";
-import { observer } from "mobx-react-lite";
 import UserScore from "./UserScore/UserScore";
 
-const GameInterface = observer(({ gameScoreStore, gameSettingsStore }) => {
+const GameInterface = () => {
   return (
     <>
       <div></div>
       <div>
-        <UserScore gameScoreStore={gameScoreStore} />
+        <UserScore />
       </div>
     </>
   );
-});
+};
 
 export default GameInterface;

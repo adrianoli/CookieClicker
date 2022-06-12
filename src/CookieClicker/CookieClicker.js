@@ -3,12 +3,14 @@ import { motion } from "framer-motion";
 import styles from "./CookieClicker.module.css";
 import { cookieMovement } from "./cookieMovement";
 import { observer } from "mobx-react-lite";
-import { useGameScoreStore } from "../hooks/useGameScoreStore";
+import { useRootStore } from "../hooks/useRootStore";
 
-const CookieClicker = observer(({ cookieDivSize, gameSettingsStore }) => {
+const CookieClicker = observer(({ cookieDivSize }) => {
   const cookieSize = 150;
   const [movement, setMovement] = useState({});
-  const gameScoreStore = useGameScoreStore();
+  const rootStore = useRootStore();
+  const gameScoreStore = rootStore.gameScoreStore;
+  const gameSettingsStore = rootStore.gameSettingsStore;
 
   useEffect(() => {
     const numberOfFrammes = gameSettingsStore.gameSettings.numberOfFrammes;

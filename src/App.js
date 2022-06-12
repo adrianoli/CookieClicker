@@ -2,10 +2,8 @@ import React, { createRef, useState, useEffect } from "react";
 import styles from "./styles.css";
 import "antd/dist/antd.css";
 import CookieClicker from "./CookieClicker/CookieClicker";
-// import { gameScoreStore } from "./Stores/GameScoreStore";
-import { gameSettingsStore } from "./Stores/GameSettingsStore";
 import GameInterface from "./GameInterface/GameInterface";
-import { GameScoreStoreProvider } from "./hooks/useGameScoreStore";
+import { RootStoreProvider } from "./hooks/useRootStore";
 
 export default function App() {
   const [cookieDivSize, setCookieDivSize] = useState({ width: 0, height: 0 });
@@ -27,19 +25,16 @@ export default function App() {
   };
 
   return (
-    <GameScoreStoreProvider>
+    <RootStoreProvider>
       <div className={styles.bodyContainer}>
         <div ref={divRef} id="cookieClickerDiv">
-          <CookieClicker
-            cookieDivSize={cookieDivSize}
-            gameSettingsStore={gameSettingsStore}
-          />
+          <CookieClicker cookieDivSize={cookieDivSize} />
         </div>
         <div id="gameInterfaceDiv">
-          <GameInterface gameSettingsStore={gameSettingsStore} />
+          <GameInterface />
         </div>
         <div style={{ clear: "both" }}></div>
       </div>
-    </GameScoreStoreProvider>
+    </RootStoreProvider>
   );
 }
