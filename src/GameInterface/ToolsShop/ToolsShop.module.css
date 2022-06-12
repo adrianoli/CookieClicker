@@ -1,8 +1,28 @@
 .shopDiv {
   text-align: center;
-  border-bottom: 2px solid #000000;
 }
 
 .shopH1 {
   color: #ffffff;
+  border-bottom: 2px solid #000000;
+}
+
+.machineDiv {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 5px;
+}
+
+.machineItem {
+  width: 50px;
+  height: 50px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 5px;
+}
+
+.machineItemImg {
+  width: 40px;
+  height: 40px;
 }

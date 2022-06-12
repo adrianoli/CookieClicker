@@ -1,0 +1,23 @@
+[
+  {
+    "machineId": "68c1138f-3593-4d39-8c6b-6465790ce07c",
+    "machineName": "Wałek i trzepaczka",
+    "imagePath": "/img/rollerAndWhisk.png",
+    "cost": 40,
+    "addPoints": 2
+  },
+  {
+    "machineId": "055c7e3e-9f87-47df-87b4-4ee5cb5d3d77",
+    "machineName": "Przepis na super ciastka",
+    "imagePath": "/img/cookieStuff.png",
+    "cost": 100,
+    "addPoints": 4
+  },
+  {
+    "machineId": "2e37389c-1fa2-46c2-b967-2ba5a7c90d07",
+    "machineName": "Kucharz robot",
+    "imagePath": "/img/roboCook.png",
+    "cost": 1000,
+    "addPoints": 25
+  }
+]
