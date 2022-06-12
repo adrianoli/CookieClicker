@@ -1,4 +1,4 @@
-import { makeObservable, observable, action } from "mobx";
+import { makeObservable, observable, action, autorun } from "mobx";
 
 class GameScoreStore {
   gameScore = {
@@ -13,14 +13,26 @@ class GameScoreStore {
     makeObservable(this, {
       gameScore: observable,
       addPoints: action,
-      changeAmountAddPoints: action
+      addMorePoints: action,
+      changeAmountAddPoints: action,
+      payForMachine: action
     });
   }
 
   addPoints() {
     this.gameScore.points += this.gameScore.amountAddPoints;
+    this.afterAddPoints();
+  }
 
-    if (this.gameScore.points === this.gameScore.nextLevelUpPoints) {
+  addMorePoints(amountPoints) {
+    if (amountPoints) {
+      this.gameScore.points += amountPoints;
+      this.afterAddPoints();
+    }
+  }
+
+  afterAddPoints() {
+    if (this.gameScore.points >= this.gameScore.nextLevelUpPoints) {
       this.gameScore.level += 1;
       this.gameScore.nextLevelUpPoints *= 2;
     }
@@ -29,6 +41,15 @@ class GameScoreStore {
   changeAmountAddPoints(amountAddPoints) {
     this.gameScore.amountAddPoints = amountAddPoints;
   }
+
+  payForMachine(points, addMachinePoints) {
+    this.gameScore.points -= points;
+    this.gameScore.pointsForMachinePerSecond += addMachinePoints;
+  }
 }
 
-export const gameScoreStore = new GameScoreStore();
+const gameScoreStoreInstance = new GameScoreStore();
+
+autorun(() => {});
+
+export const gameScoreStore = gameScoreStoreInstance;
