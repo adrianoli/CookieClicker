@@ -2,40 +2,56 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import styles from "./CookieClicker.module.css";
 import { cookieMovement } from "./cookieMovement";
+import { observer } from "mobx-react-lite";
 
-const CookieClicker = (props) => {
-  const cookieSize = 150;
-  const [clicked, setClicked] = useState(0);
-  const [movement, setMovement] = useState({});
+const CookieClicker = observer(
+  ({ cookieDivSize, gameScoreStore, gameSettingsStore }) => {
+    const cookieSize = 150;
+    const [movement, setMovement] = useState({});
 
-  useEffect(() => {
-    setMovement(cookieMovement(props.cookieDivSize, cookieSize, 5));
+    useEffect(() => {
+      const numberOfFrammes = gameSettingsStore.gameSettings.numberOfFrammes;
+      const millisecondsNewPathGenerate =
+        gameSettingsStore.gameSettings.millisecondsAfterFindNewPath;
+      setMovement(cookieMovement(cookieDivSize, cookieSize, numberOfFrammes));
 
-    const movementInterval = setInterval(() => {
-      const newMovement = cookieMovement(props.cookieDivSize, cookieSize, 5);
-      setMovement(newMovement);
-    }, 10000);
+      const movementInterval = setInterval(() => {
+        const numberOfFrammes = gameSettingsStore.gameSettings.numberOfFrammes;
+        const newMovement = cookieMovement(
+          cookieDivSize,
+          cookieSize,
+          numberOfFrammes
+        );
+        setMovement(newMovement);
+      }, millisecondsNewPathGenerate);
 
-    return () => clearInterval(movementInterval);
-  }, [props.cookieDivSize]);
+      return () => clearInterval(movementInterval);
+    }, []);
 
-  const handleOnClick = () => {
-    setClicked(clicked + 1);
-  };
+    const handleOnClick = () => {
+      gameScoreStore.addPoints();
+    };
 
-  return (
-    <motion.div className={styles.container}>
-      <motion.div
-        className={styles.item}
-        animate={{
-          x: movement.x,
-          y: movement.y
-        }}
-        transition={{ repeat: Infinity, repeatType: "mirror", duration: 5 }}
-        onClick={handleOnClick}
-      />
-    </motion.div>
-  );
-};
+    const duration = gameSettingsStore.gameSettings.duration;
+
+    return (
+      <motion.div className={styles.container}>
+        <motion.div
+          className={styles.item}
+          animate={{
+            x: movement.x,
+            y: movement.y
+          }}
+          transition={{
+            repeat: Infinity,
+            repeatType: "mirror",
+            duration: duration
+          }}
+          onClick={handleOnClick}
+        />
+      </motion.div>
+    );
+  }
+);
 
 export default CookieClicker;
