@@ -38,6 +38,10 @@ const ToolsShop = observer(() => {
             >
               <Button
                 key={machine.machineId}
+                style={{
+                  width: "50px",
+                  height: "50px"
+                }}
                 type="primary"
                 disabled={gameScoreStore.gameScore.points < machine.cost}
                 icon={

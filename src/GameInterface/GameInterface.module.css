@@ -1,0 +1,13 @@
+.mainInterfaceDiv {
+  height: 100vh;
+}
+
+.shopDiv {
+  height: 70vh;
+  background-image: url(/img/shop.jpg);
+}
+
+.userScoreDiv {
+  height: 30vh;
+  background-image: url(/img/resultBackground.jpg);
+}
