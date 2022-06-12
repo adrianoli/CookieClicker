@@ -3,7 +3,7 @@
     "machineId": "68c1138f-3593-4d39-8c6b-6465790ce07c",
     "machineName": "Wałek i trzepaczka",
     "imagePath": "/img/rollerAndWhisk.png",
-    "cost": 5,
+    "cost": 60,
     "addPoints": 2
   },
   {
@@ -17,7 +17,7 @@
     "machineId": "2e37389c-1fa2-46c2-b967-2ba5a7c90d07",
     "machineName": "Kucharz robot",
     "imagePath": "/img/roboCook.png",
-    "cost": 1000,
+    "cost": 500,
     "addPoints": 25
   }
 ]
