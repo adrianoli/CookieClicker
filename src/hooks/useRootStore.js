@@ -23,7 +23,7 @@ export const RootStoreProvider = ({ children }) => {
 export const useRootStore = () => {
   const store = useContext(rootStoreContext);
   if (!store) {
-    throw new Error("useGameScoreStore must be used within a StoreProvider");
+    throw new Error("useRootStore must be used within a StoreProvider");
   }
 
   return store;

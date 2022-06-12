@@ -33,6 +33,7 @@ const CookieClicker = observer(({ cookieDivSize }) => {
 
   const handleOnClick = () => {
     gameScoreStore.addPoints();
+    gameSettingsStore.changeDifficulty(gameScoreStore.gameScore.level);
   };
 
   const duration = gameSettingsStore.gameSettings.duration;

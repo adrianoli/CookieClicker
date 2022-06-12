@@ -1,0 +1,10 @@
+.scoreDiv {
+  border-top: 2px solid #000000;
+  color: #ffffff;
+  margin-left: 2px;
+}
+
+.scoreH1 {
+  text-align: center;
+  color: #ffffff;
+}
