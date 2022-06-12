@@ -15,12 +15,11 @@
   float: left;
   width: 70%;
   background-image: url(/img/table.jpg);
+  background-position: center;
+  background-size: cover;
 }
 
 #gameInterfaceDiv {
   float: left;
   width: 30%;
-}
-
-.cookieClickerDiv {
 }
