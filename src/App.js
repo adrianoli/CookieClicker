@@ -4,6 +4,7 @@ import "antd/dist/antd.css";
 import CookieClicker from "./CookieClicker/CookieClicker";
 import { gameScoreStore } from "./Stores/GameScoreStore";
 import { gameSettingsStore } from "./Stores/GameSettingsStore";
+import GameInterface from "./GameInterface/GameInterface";
 
 export default function App() {
   const [cookieDivSize, setCookieDivSize] = useState({ width: 0, height: 0 });
@@ -33,8 +34,11 @@ export default function App() {
           gameSettingsStore={gameSettingsStore}
         />
       </div>
-      <div id="userInterfaceDiv">
-        <p>Test</p>
+      <div id="gameInterfaceDiv">
+        <GameInterface
+          gameScoreStore={gameScoreStore}
+          gameSettingsStore={gameSettingsStore}
+        />
       </div>
       <div style={{ clear: "both" }}></div>
     </div>

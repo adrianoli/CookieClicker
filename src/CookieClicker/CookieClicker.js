@@ -26,7 +26,7 @@ const CookieClicker = observer(
       }, millisecondsNewPathGenerate);
 
       return () => clearInterval(movementInterval);
-    }, []);
+    }, [cookieDivSize]);
 
     const handleOnClick = () => {
       gameScoreStore.addPoints();
