@@ -8,8 +8,20 @@
 }
 
 .item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
   width: 150px;
   height: 150px;
-  background: white;
-  border-radius: inherit;
+  background: rgba(255, 255, 255, 0);
+  border-radius: 50%;
+}
+
+.cookieImg {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  -ms-user-select: none;
 }

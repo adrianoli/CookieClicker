@@ -37,9 +37,15 @@ const CookieClicker = observer(({ cookieDivSize }) => {
   };
 
   const duration = gameSettingsStore.gameSettings.duration;
+  const handlePreventMouseDown = (e) => {
+    e.preventDefault();
+  };
 
   return (
-    <motion.div className={styles.container}>
+    <motion.div
+      className={styles.container}
+      onMouseDown={handlePreventMouseDown}
+    >
       <motion.div
         className={styles.item}
         animate={{
@@ -52,7 +58,9 @@ const CookieClicker = observer(({ cookieDivSize }) => {
           duration: duration
         }}
         onClick={handleOnClick}
-      />
+      >
+        <img className={styles.cookieImg} src="/img/cookie.png" alt="ciastko" />
+      </motion.div>
     </motion.div>
   );
 });
