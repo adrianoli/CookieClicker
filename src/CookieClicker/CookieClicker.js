@@ -59,7 +59,11 @@ const CookieClicker = observer(({ cookieDivSize }) => {
         }}
         onClick={handleOnClick}
       >
-        <img className={styles.cookieImg} src="/img/cookie.png" alt="ciastko" />
+        <img
+          className={styles.cookieImg}
+          src="https://rawcdn.githack.com/adrianoli/CookieClicker/6ef45597a1c706df9214aab1a02c57502ad63cb4/public/img/cookie.png"
+          alt="ciastko"
+        />
       </motion.div>
     </motion.div>
   );
